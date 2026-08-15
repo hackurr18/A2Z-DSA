@@ -7,8 +7,7 @@ int slargest(int arr[],int n){
         if(arr[i]>largest){
             slargest=largest;
             largest=arr[i];
-            
-        } 
+            } 
 
         if(arr[i]>slargest && arr[i]!=largest) slargest=arr[i];
     }
