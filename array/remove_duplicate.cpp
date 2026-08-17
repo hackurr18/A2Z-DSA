@@ -21,6 +21,7 @@ int main(){
     }
 }
     */
+//optimal Q(n)
 int main(){
     vector<int>vec={1,1,2,2,3,4,5,5};
     int i=0,j=1;
