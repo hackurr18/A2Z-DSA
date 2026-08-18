@@ -7,5 +7,5 @@ int main(){
         if(largest < arr[i]) largest =arr[i];
     }
     cout<<largest;
-    return 0;
+   return 0;
 }

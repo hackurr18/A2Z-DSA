@@ -15,7 +15,7 @@ int slargest(vector<int> vec,int n ){
     return slargest;
 }
 int ssmallest(vector<int> vec, int n){
-    int smallest=INT_MAX;
+    int smallest=vec[0];
     int ssmallest=INT_MAX;
     for(int i=0;i<n;i++){
         if(vec[i]<smallest){
