@@ -22,7 +22,7 @@ int missingNum(vector<int>& arr) {
     }
     return -1;
 }
-//optimal
+//better
 
 int missingNumber(vector<int> &arr) {
 
@@ -44,10 +44,23 @@ int missingNumber(vector<int> &arr) {
     }
     return -1;
 }
+//optim sum=n)n+1)/2.  - s2 ;
+//optimal using xor.
+int missingNumb(vector<int> &arr) {
+    int N = arr.size() + 1;
+    int xor1=0 , xor2=0;
+    int n=N-1;
+    for(int i=0;i<n;i++){
+        xor2=xor2 ^ arr[i];
+        xor1= xor1 ^ (i+1);
+    }
+    xor1=xor1 ^ N;
+    return xor1 ^ xor2;
+}
 int main() {
     vector<int> arr = { 2, 6, 5, 3, 7, 1}; 
     cout << missingNum(arr) << endl; 
-    int res = missingNumber(arr);
+    int res = missingNumb(arr);
     cout << res << endl;
     return 0;
 }
