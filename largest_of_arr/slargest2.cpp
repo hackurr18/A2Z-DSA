@@ -14,7 +14,7 @@ int slargest(int arr[],int n){
     return slargest;
 }
 int main(){
-    int arr[6]={1,2,4,7,7,5};
+    int arr[6]={10,2,4,7,7,5};
     int n=sizeof(arr)/sizeof(arr[0]);
     cout<<n<<endl;
     cout<<slargest(arr,n);
