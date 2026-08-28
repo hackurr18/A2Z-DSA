@@ -1,4 +1,5 @@
 #include<iostream>
+#include<unordered_set>
 using namespace std;
 //brute tc O(n^2)
 bool ls(vector<int>&nums,int next){
@@ -41,10 +42,33 @@ int longestSuccessiveElements(vector<int>&nums){
         longest=max(longest,cnt);
     }
     return longest;
-
+}
+//optimal tc O(3n)
+int longSuccessiveElements(vector<int>&nums){
+    if(nums.size()==0) return 0;
+    int longest=1 ;
+    //unordered_set<int>st(nums.begin(),nums.end()); //
+    unordered_set<int>st; //by red sir
+    //O(N)
+    for(int i=0;i<nums.size();i++){
+        st.insert(nums[i]);
+    }
+    //O(n+n)
+    for(auto it:st){
+        if(st.find(it-1) == st.end()){
+            int cnt=1;
+            int x=it;
+            while(st.find(x+1) != st.end()){
+                x+=1;
+                cnt+=1;
+            }
+            longest= max(longest,cnt);    
+        }
+    }
+    return longest;
 }
 int main(){
     vector<int>nums={102,4,100,1,101,3,2,1,1};
     //cout<<conse(nums);
-    cout<<longestSuccessiveElements(nums);
+    cout<<longSuccessiveElements(nums);
 }
