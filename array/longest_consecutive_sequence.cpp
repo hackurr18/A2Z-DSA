@@ -2,7 +2,7 @@
 #include<unordered_set>
 using namespace std;
 //brute tc O(n^2)
-bool ls(vector<int>&nums,int next){
+bool ls(vector<int>nums,int next){
     for(int i=0;i<nums.size();i++){
         if(nums[i]==next) return true;
     }
@@ -47,7 +47,8 @@ int longestSuccessiveElements(vector<int>&nums){
 int longSuccessiveElements(vector<int>&nums){
     if(nums.size()==0) return 0;
     int longest=1 ;
-    //unordered_set<int>st(nums.begin(),nums.end()); //
+     //faster and cleaner because it eliminates resizing overhead and requires fewer lines of code.
+    //unordered_set<int>st(nums.begin(),nums.end());
     unordered_set<int>st; //by red sir
     //O(N)
     for(int i=0;i<nums.size();i++){
