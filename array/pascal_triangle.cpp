@@ -13,6 +13,18 @@ vector<int>generateRow(int row){
     }
     return ansRow ;
 }
+//find ele at given row and col
+//TC O(r)
+int nCr(int n, int r){
+    int row=n-1;
+    int col=r-1;
+    long long res=1;
+    for(int i=0 ; i<col;i++){
+        res=res * (row-i) ;
+        res= res / (i+1) ;
+    }
+    return res;
+}
 int main(){
         int numRows=6; 
         vector<vector<int>>ans;
@@ -25,5 +37,7 @@ int main(){
             }
             cout<<'\n';
         }
+        //
+        cout<<nCr(5,3);
         return 0;
 }
