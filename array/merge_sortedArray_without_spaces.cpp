@@ -77,19 +77,53 @@ void merges(vector<int>& nums1, int m, vector<int>& nums2, int n) {
         nums1[k--] = nums2[right--];
     }
 }
+//optimal2 using shell sort
+//tc O(log (n+m))* O(n+m)
+void swapIfGreater(vector<int>&nums1,vector<int>&nums2,int ind1,int ind2){
+    if(nums1[ind1]>nums2[ind2]){
+        swap(nums1[ind1],nums2[ind2]);
+    }
+}
+void mergess(vector<int>&nums1,vector<int>&nums2,int n,int m){
+    int len=(n+m);
+    int gap=(len/2) +(len%2);
+    while(gap>0){
+        int left=0;
+        int right=left+gap;
+        while(right<len){
+            //arr1 n arr2
+            if(left<n && right>=n){
+                swapIfGreater(nums1,nums2,left,right-n);
+            }
+            //arr2 n arr2
+            else if(left>=n){
+                swapIfGreater(nums2,nums2,left-n,right-n);
+            }
+            //arr1 n arr1
+            else{
+                swapIfGreater(nums1,nums1,left,right);
+            }
+            left++ , right++ ;
+        }
+        if(gap ==1) break;
+        gap=(gap/2) + (gap%2);
+    }
+}
 int main(){
-    //vector<int>nums1={1,3,5,7};
+    vector<int>nums1={1,3,5,7};
     //vector<int>nums2={0,2,6,8,9};
-    vector<int>nums1={1,2,3,0,0,0,0};
+    //vector<int>nums1={1,2,3,0,0,0,0};
     vector<int>nums2={2,5,6,7};
+    //int m=3;
+    //int n=4;
     int m=3;
     int n=4;
-    merges(nums1,m,nums2 , n);
+    mergess(nums1,nums2 , n,m);
     for(auto i:nums1){
         cout<<i<<" ";
     }
-    /*for(auto y:nums2){
+    for(auto y:nums2){
         cout<<y<<" ";
-    }*/
+    }
     return 0;
 }
