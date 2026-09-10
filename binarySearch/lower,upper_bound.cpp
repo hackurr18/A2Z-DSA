@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-//lowerbound
+//lowerbound ..found first occurence
 //lb=lower_bound(nums.begin(),nums.end(),x)-nums.begin();
 //tc O(logn)
 int lower(vector<int>&nums, int target){
@@ -18,7 +18,7 @@ int lower(vector<int>&nums, int target){
     }
     return ans;
 }
-//upperbound
+//upperbound ..find last occurence +1
 int upper(vector<int>&nums,int target){
     int n=nums.size();
     int ans=n;
@@ -84,11 +84,11 @@ int findCeil(int arr[], int n, int x) {
     }
 int main(){
     vector<int>nums={1,2,3,3,4,8,8,9,9};
-    int target=5;
+    int target=8;
     //cout<<lower_bound(nums.begin(),nums.end(),target)-nums.begin();
     //cout<<upper_bound(nums.begin(),nums.end(),target)-nums.begin();
-    //cout<<upper(nums,target);
-    //cout<<lower(nums,target);
-    cout<<searchInsert(nums,target);
+    cout<<upper(nums,target);
+    cout<<lower(nums,target);
+    //cout<<searchInsert(nums,target);
     return 0;
 }
