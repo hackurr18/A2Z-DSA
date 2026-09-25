@@ -14,14 +14,20 @@ struct node {
 };
 
 // Pre-order traversal: root -> left -> right
-void pre_order(node *node) {    
-    if (node == nullptr) return;
+void pre_order(node *root) {    
+    if (root == nullptr) return;
 
-    cout << node->data << " "; 
-    pre_order(node->left);
-    pre_order(node->right);
+    cout << root->data << " "; 
+    pre_order(root->left);
+    pre_order(root->right);
 }
-
+//in order traversal : left root right
+void in_order(node *root){
+    if(root == nullptr) return;
+    in_order(root->left);
+    cout<<root->data<<" ";
+    in_order(root->right);
+}
 int main() {
     struct node *root = new node(1);
     root->left = new node(2);
@@ -31,6 +37,8 @@ int main() {
     cout << "Pre-order Traversal: ";
     pre_order(root);           
     cout << endl;
-
+    cout << "in-order Traversal: ";
+    in_order(root);
+    cout<<endl;
     return 0;
 }
