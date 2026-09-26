@@ -28,6 +28,13 @@ void in_order(node *root){
     cout<<root->data<<" ";
     in_order(root->right);
 }
+// post order traversal : left right root
+void post_order(node *root){
+    if(root == nullptr) return;
+    post_order(root->left);
+    post_order(root ->right);
+    cout<< root->data <<" ";
+}
 int main() {
     struct node *root = new node(1);
     root->left = new node(2);
@@ -39,6 +46,9 @@ int main() {
     cout << endl;
     cout << "in-order Traversal: ";
     in_order(root);
+    cout<<endl;
+    cout << "pst order Traversal: ";
+    post_order(root);
     cout<<endl;
     return 0;
 }
