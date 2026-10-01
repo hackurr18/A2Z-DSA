@@ -47,12 +47,21 @@ void pattern4(int n){
         cout<<"\n";
     }
 }
+void pattern6(int n){
+    for (int i = 1; i<=n; i++)
+    {
+        for(int j=1 ;j<=(n-i+1);j++){
+            cout<< j;
+        }
+        cout<<"\n";
+    }
+}
 
 int main() {
     int N = 5;  // Set the size of the square (5x5)
     //pattern1(N); // Call the function to print the pattern
     //pattern2(N);
    // pattern3(N);
-    pattern4(N);
+    pattern6(N);
     return 0;
 }
